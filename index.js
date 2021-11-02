@@ -107,68 +107,7 @@ async function run() {
 
 
 
-
-
-
-
-
-
-
-
-        // app.get('/singleBooking/:id', async (req, res) => {
-        //     console.log('Hitting Body', req);
-        //     const query = { _id: ObjectId(id) }
-        //     const result = await travelsCollection.findOne(query).toArray();
-        //     console.log(result);
-        // })
-
-
-
-
-
-
-
-
-        // Post API
-        // app.get('/book/:id', async (req, res) => {
-        // console.log(req.body);
-        // const query = { _id: ObjectId(req.params._id) }
-        // console.log(query)
-        // const result = await bookingCollection.insertOne({ query });
-        // console.log(result);
-        // res.send(result);
-        // })
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     finally {
         //await client.close();
