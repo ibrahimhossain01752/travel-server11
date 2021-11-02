@@ -40,13 +40,20 @@ async function run() {
         })
 
 
+        // geting id to show single data form travels database.... 
+        app.get('/book/:id', async (req, res) => {
+            console.log('Hitedddddd Body.....', req.body);
+        })
+
+
+
+
         app.use('/getBooking', async (req, res) => {
             console.log(req.body);
             const result = await bookingCollection.find({}).toArray();
             console.log(result);
             res.send(result);
         })
-
 
 
 
@@ -68,6 +75,52 @@ async function run() {
 
 
 
+        app.delete('/deleteOrdersByUser/:id', async (req, res) => {
+            const query = { _id: ObjectId(req.params.id) }
+            console.log(query);
+            const result = await CustomerInfo.deleteOne(query);
+            res.send(result);
+
+        })
+
+
+        // Add New Services To Database............
+        app.post('/addServiceDB', async (req, res) => {
+            const result = await travelsCollection.insertOne(req.body);
+            res.send(result);
+        })
+
+
+
+
+        app.put('/adminPannel/approved/:id', async (req, res) => {
+            const query = { _id: ObjectId(req.params.id) }
+            const result = await CustomerInfo.updateOne(query, {
+                $set: {
+                    status: 'Approved'
+                }
+            });
+            console.log(result);
+            res.send(result);
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+        // app.get('/singleBooking/:id', async (req, res) => {
+        //     console.log('Hitting Body', req);
+        //     const query = { _id: ObjectId(id) }
+        //     const result = await travelsCollection.findOne(query).toArray();
+        //     console.log(result);
+        // })
 
 
 
